@@ -173,7 +173,7 @@ public class CheckoutController extends HttpServlet {
                 ArrayList<OrderDetail> details = new ArrayList<>();
                 while (em.hasMoreElements()) {
                     String id = em.nextElement();
-                    if (!id.equals("account")) {
+                    if (!id.equals("account") && v.checkPhone(id)) {
                         String count = session.getAttribute(id).toString();
                         int idpro = Integer.parseInt(id);
                         int quantity = Integer.parseInt(count);
